@@ -1,0 +1,139 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #2d3436;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container */
+body > * {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Navbar */
+nav {
+    background: #ffffff;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    font-weight: 500;
+}
+
+nav a {
+    text-decoration: none;
+    color: #667eea;
+    margin-right: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #764ba2;
+}
+
+/* Headings */
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Post Cards */
+.post-card {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Post Title */
+.post-card h2 a {
+    color: #5a4fcf;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.post-card h2 a:hover {
+    color: #764ba2;
+    border-bottom: 2px solid #764ba2;
+}
+
+/* Post Content */
+.post-card p {
+    color: #555;
+    margin: 10px 0;
+}
+
+.post-card small {
+    color: #888;
+}
+
+/* Forms */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: #f1f2f6;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    background: #eaeaff;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #ffffff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Comments */
+.comment {
+    background: #f1f2f6;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+
+/* Error */
+#error {
+    color: #ff4757;
+    font-weight: bold;
+}

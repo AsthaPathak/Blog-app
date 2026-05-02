@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Create New Post</h1>
+    <input type="text" id="title" placeholder="Post title"><br><br>
+    <textarea id="body" placeholder="Write your post here..." rows="5" cols="30"></textarea><br><br>
+    <button onclick="createPost()">Submit Post</button>
+
+    <script>
+        async function createPost() {
+            const author = localStorage.getItem('username');
+            if (!author) {
+                alert('Please login first!');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const title = document.getElementById('title').value;
+            const body = document.getElementById('body').value;
+
+            const res = await fetch('/api/posts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, body, author })
+            });
+
+            if (res.ok) {
+                window.location.href = 'index.html';
+            } else {
+                alert('Error creating post');
+            }
+        }
+    </script>
+</body>
+</html>

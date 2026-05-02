@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlogApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <strong>BlogApp</strong> | 
+        <a href="create.html">+ New Post</a> | 
+        <span id="nav-user"></span>
+    </nav>
+    <h1>All Posts</h1>
+    <div id="posts-container">Loading...</div>
+
+    <script>
+        // Show username in nav
+        const user = localStorage.getItem('username');
+        document.getElementById('nav-user').textContent = user ? 'Hello, ' + user : '';
+
+        // Load and display all posts
+        async function loadPosts() {
+            const res = await fetch('/api/posts');
+            const posts = await res.json();
+            const container = document.getElementById('posts-container');
+
+            if (posts.length === 0) {
+                container.innerHTML = '<p>No posts yet.</p>';
+                return;
+            }
+
+            container.innerHTML = posts.map(post => `
+                <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                    <h2><a href="post.html?id=${post.id}">${post.title}</a></h2>
+                    <p>${post.body.substring(0, 100)}...</p>
+                    <small>By ${post.author} on ${new Date(post.created_at).toLocaleDateString()}</small>
+                </div>
+            `).join('');
+        }
+
+        loadPosts();
+    </script>
+</body>
+</html>
