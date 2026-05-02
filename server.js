@@ -1,9 +1,17 @@
+process.on('uncaughtException', err => {
+  console.error('Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', err => {
+  console.error('Unhandled Rejection:', err);
+});
 const express = require('express');
 const Database = require('better-sqlite3');
 const path = require('path');
 
 const app = express();
-const db = new Database('blog.db');
+// const db = new Database('blog.db');
+const db = new Database('./blog.db');
 
 // Middleware
 app.use(express.json());
