@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>BlogApp</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
-        <strong>BlogApp</strong> | 
-        <a href="create.html">+ New Post</a> | 
-        <span id="nav-user"></span>
+        <div class="nav-left">
+            <span class="logo">BlogApp</span>
+            <a href="create.html">+ New Post</a>
+        </div>
+
+        <div class="nav-right">
+            <span id="nav-user"></span>
+        </div>
     </nav>
     <h1>All Posts</h1>
     <div id="posts-container">Loading...</div>
@@ -42,4 +49,5 @@
         loadPosts();
     </script>
 </body>
+
 </html>
